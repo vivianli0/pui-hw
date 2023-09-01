@@ -1,5 +1,9 @@
 /* ////////////////////////////// universal //////////////////////////////// */
 
+body {
+    font-family: sans-serif;
+}
+
 .directory {
     text-decoration: none;
     color: black;
@@ -108,7 +112,7 @@ span {
 
 .options, .purchase {
     margin: auto;
-    width: 185px;
+    width: 202px;
     /* that's the width of description before it */
     margin-bottom: 50px;
 }
@@ -119,7 +123,7 @@ span {
 }
 
 .options select {
-    width: 185px;
+    width: 202px;
     /* that's the width of description before it */
     margin: 5px 0 25px 0;
     /* margin-bottom: 20px; */
