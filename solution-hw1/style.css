@@ -1,3 +1,12 @@
+/* ////////////////////////////// universal //////////////////////////////// */
+
+.directory {
+    text-decoration: none;
+    color: black;
+}
+
+/* ////////////////////////// product gallery ////////////////////////////// */
+
 .header {
     border-bottom: 2px black solid;
 }
@@ -25,10 +34,16 @@ span {
 
 .product:hover {
     background-color: yellow;
+    font-weight: bold;
 }
 
 .product-img {
     border: 2px solid black;
+}
+
+.product-link {
+    color: black;
+    text-decoration: none;
 }
 
 /* ////////////////////////// shopping cart ////////////////////////////// */
@@ -68,4 +83,54 @@ span {
     display: block;
     margin: 0 auto;
 } 
+
+.space {
+    height: 100px;
+}
+
+/* ////////////////////////// product page ////////////////////////////// */
+
+.product-detail {
+    margin: auto;
+    width: 600px;
+    text-align: center;
+}
+
+.detail-img {
+    border: 2px solid black;
+}
+
+.detail-text {
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.options, .purchase {
+    margin: auto;
+    width: 185px;
+    /* that's the width of description before it */
+    margin-bottom: 50px;
+}
+
+.label {
+    display: inline-block;
+    text-align: left;
+}
+
+.options select {
+    width: 185px;
+    /* that's the width of description before it */
+    margin: 5px 0 25px 0;
+    /* margin-bottom: 20px; */
+}
+
+.add-to-cart {
+    margin-left: 61px;
+    background: yellow;
+}
+
+.purchase {
+    margin-bottom: 80px;
+}
 
