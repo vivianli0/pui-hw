@@ -4,34 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Detail</title>
-  <link href="style.css" rel="stylesheet">
+  <link href="style2.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="header">
+  <!-- flex container / navigation -->
+  <div class="header">
+
+    <!-- left side (logo) -->
+    <div class="header-1">
       <a href="index.html">
-        <img class="logo" src="../assets/logo/logo-01.svg" width="400" alt="logo">
+      <img class="logo" src="../assets/logo/logo-01.svg" width="400" alt="logo">
       </a>
     </div>
-  
-    <div class="gallery"> 
+ 
+    <!-- right side -->
+    <div class="header-2">
+      <ul class="nav">
+        <li class="nav-item"><span>PRODUCTS</span></li>
+        <li class="nav-item"><a href="cart.html" class="directory">CART</a></li>
+      </ul>
+      <div class="divider"></div>
       <p class="title">
-        <span><a class="directory" href="index.html">PRODUCTS</a></span>
-        <br><br>
-        <a class="directory" href="cart.html">CART</a>  
-        <br><br><br><br><br> 
         Original cinnamon roll
       </p>
-  
-      <div class="product-detail">
-        <img class="detail-img" src="../assets/products/original-cinnamon-roll.jpg" width="600" alt="picture of cinnamon roll">
-        <p class="detail-text">
-          Customize our delicious <br>
-          hand-made cinammon roll to <br>
-          your liking!
-        </p> 
-      </div>
+    </div>
 
+  </div>
+  
+  <!-- flex container -->
+  <div class="product-detail"> 
+
+    <!-- flex item 1 (left side)-->
+    <div class="product-detail-l">
+      <img class="detail-img" src="../assets/products/original-cinnamon-roll.jpg" 
+      width="600" alt="picture of cinnamon roll">
+    </div>
+
+    <!-- flex item 2 (right side) -->
+    <div class="product-detial-r">
+      <p class="detail-text">
+        Customize our delicious <br>
+        hand-made cinammon roll to <br>
+        your liking!
+      </p> 
+  
       <div class="options">
         <label for="glazing">Glazing:</label><br>
         <select name="glazing" id="glazing">
@@ -40,7 +57,7 @@
           <option value="vanilla-milk">Vanilla milk</option>
           <option value="double-chocolate">Double chocolate</option>
         </select> <br>
-
+  
         <label for="size">Pack size:</label><br>
         <select name="size" id="size">
           <option value="1">1</option>
@@ -49,13 +66,15 @@
           <option value="12">12</option>
         </select>
       </div>
-
+  
       <div class="purchase">
-        &nbsp;$2.49
+        <p class="product-price">$2.49</p>
         <button class="add-to-cart">Add to Cart</button>
       </div>
-
     </div>
-  </body>
-  </html>
+
+  </div>
+
+</body>
+</html>
   

@@ -4,24 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopping Cart</title>
-  <link href="style.css" rel="stylesheet">
+  <link href="style2.css" rel="stylesheet">
 </head>
 
 <body>
+  <!-- flex container / navigation -->
   <div class="header">
-    <a href="index.html">
+
+    <!-- left side (logo) -->
+    <div class="header-1">
+      <a href="index.html">
       <img class="logo" src="../assets/logo/logo-01.svg" width="400" alt="logo">
-    </a>
+      </a>
+    </div>
+ 
+    <!-- right side -->
+    <div class="header-2">
+      <ul class="nav">
+        <li class="nav-item"><a href="index.html" class="directory">PRODUCTS</a></li>
+        <li class="nav-item"><span>CART</span></a></li>
+      </ul>
+      <div class="divider"></div>
+      <p class="title">
+        Shopping cart
+      </p>
+    </div>
+
   </div>
 
+  <!-- flex container / cart items-->
   <div class="gallery"> 
-    <p class="title">
-      <a class="directory" href="index.html">PRODUCTS</a>
-      <br><br>
-      <span><a class="directory" href="cart.html">CART</a></span>
-      <br><br><br><br><br>
-      Shopping Cart
-    </p>
 
     <div class="cart-item">
       <img class="cart-img" src="../assets/products/original-cinnamon-roll.jpg" width="200" alt="picture of cinnamon roll">
