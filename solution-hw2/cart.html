@@ -33,46 +33,71 @@
   </div>
 
   <!-- flex container / cart items-->
-  <div class="gallery"> 
+  <div class="cart-container"> 
 
+    <!-- vertical flex 1 / cart entry 1 -->
     <div class="cart-item">
-      <img class="cart-img" src="../assets/products/original-cinnamon-roll.jpg" width="200" alt="picture of cinnamon roll">
-      <p class="remove-btn">Remove</p>
-      <p class="description">
-        Original Cinnamon Roll 
-        <br> 
-        Glazing: Keep original
-        <br>
-        Pack Size: 1
-      </p>
-      <p class="price"> $2.49 </p>
+
+      <div class="item-left">
+        <img class="cart-img" src="../assets/products/original-cinnamon-roll.jpg" width="150" alt="picture of cinnamon roll">
+        <p class="remove-btn">Remove</p>
+      </div>
+
+      <div class="item-middle">
+        <p class="description">
+          Original Cinnamon Roll 
+          <br>
+          Glazing: Keep original
+          <br>
+          Pack Size: 1
+        </p>
+      </div>
+
+      <div class="item-right">
+        <p class="price"> $ 2.49 </p>
+      </div>
+
+    </div>
+
+    <!-- vertical flex 2 / cart entry 2 -->
+    <div class="cart-item">
+
+      <div class="item-left">
+        <img class="cart-img" src="../assets/products/double-chocolate-cinnamon-roll.jpg" width="150" alt="picture of cinnamon roll">
+        <p class="remove-btn">Remove</p>
+      </div>
+
+      <div class="item-middle">
+        <p class="description">
+          Double Chocolate Cinnamon Roll 
+          <br> 
+          Glazing: Sugar milk
+          <br>
+          Pack Size: 6
+        </p>
+      </div>
+
+      <div class="item-right">
+        <p class="price"> $ 27.45 </p>
+      </div>
+    
+    </div>
+
+    <!-- vertical flex 3 / checkout -->
+    <div class="cart-item">
+      <div class="divider2"></div> 
+    </div>
+
+    <div class="cart-item total-price">
+      <p class="total">Total</p>
+      <p class="total num">$29.94</p>
     </div>
 
     <div class="cart-item">
-      <img class="cart-img" src="../assets/products/double-chocolate-cinnamon-roll.jpg" width="200" alt="picture of cinnamon roll">
-      <p class="remove-btn">Remove</p>
-      <p class="description">
-        Double Chocolate Cinnamon Roll 
-        <br> 
-        Glazing: Sugar milk
-        <br>
-        Pack Size: 6
-      </p>
-      <p class="price"> $27.45 </p>
+      <button class="checkout-btn">Checkout</button>
     </div>
 
   </div>
-
-<!-- border -->
-  <div class="header2"></div> 
-
-<!-- checkout -->
-  <p class="price">Total: $29.94</p>
-  <!-- this button is rly hard to center -->
-  <button class="checkout-btn">Checkout</button>
-
-<!-- some spacing -->
-  <div class="space"></div>
 
 </body>
 
