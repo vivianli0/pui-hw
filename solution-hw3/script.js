@@ -1,29 +1,3 @@
-/* 
- basePrice = 2.49
- finalPrice = (basePrice + glazingPrice) * packPrice 
- update triggered by user changing their selections
-
-
- elements
- - make object for glazing change
- - make object for size change
- - populate options in js
- - function to calculate final price  
- - when selection changes, final price updates
-
-*/ 
-
-let finalPrice;
-
-// add function wrapper to preserve context for passing object method as event handler
-// thx ChatGPT for explaining why I can't pass it directly without getting reference error!
-window.addEventListener('load', function() {
-    glazingOptions.populate();
-});
-
-window.addEventListener('load', function() {
-    sizeOptions.populate(); 
-});
 
 // OBJECT 
 const glazingOptions = {
@@ -39,12 +13,6 @@ const glazingOptions = {
             opt.innerHTML = this.options[i]; 
             select.appendChild(opt);
         }
-    }, 
-    
-    // get current selection (price adaption)
-    price: function(){
-        const selection = parseInt(document.getElementById('size').value, 10);
-        return selection;
     }
 }
 
@@ -62,20 +30,31 @@ const sizeOptions = {
             opt.innerHTML = this.options[i]; 
             select.appendChild(opt);
         }
-    }, 
-
-    // get current selection (price adaption)
-    price: function(){
-        const selection = parseInt(document.getElementById('size').value, 10);
-        return selection;
-    }
+    } 
 }
 
-// onclick --> selection change
+// populate select options
+glazingOptions.populate();
+sizeOptions.populate();
+
+
+// CALCULATE FINAL PRICE
+const basePrice = 2.49;
+// access DOM
+const displayPrice = document.getElementById('js-price');
+// float precision
+const precision = 2; 
+
 function glazingChange(element) {
-    const priceChange = element.value
+    const glazingPrice = parseFloat(element.value);
+    const packPrice = parseFloat(document.getElementById('size').value);
+    const finalPrice = (basePrice + glazingPrice) * packPrice;
+    displayPrice.innerHTML = '$ ' + finalPrice.toFixed(precision);
 }
 
 function sizeChange(element) {
-    const sizeChange = element.value
+    const glazingPrice = parseFloat(document.getElementById('glazing').value);
+    const packPrice = parseFloat(element.value);
+    const finalPrice = (basePrice + glazingPrice) * packPrice;
+    displayPrice.innerHTML = '$ ' + finalPrice.toFixed(precision);
 }

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Detail</title>
   <link href="style.css" rel="stylesheet">
-  <script src="script.js"></script>
 </head>
 
 <body>
@@ -52,30 +51,26 @@
   
       <div class="options">
         <label for="glazing">Glazing:</label><br>
-        <select name="glazing" id="glazing" onchange="glazingChange(this)">
-          <!-- <option value="keep-original">Keep original</option>
-          <option value="sugar-milk">Sugar milk</option>
-          <option value="vanilla-milk">Vanilla milk</option>
-          <option value="double-chocolate">Double chocolate</option> -->
-        </select> <br>
-  
+        <select name="glazing" id="glazing" onchange="glazingChange(this)"></select> 
+        <br>
         <label for="size">Pack size:</label><br>
-        <select name="size" id="size" onchange="sizeChange(this)">
-          <!-- <option value="1">1</option>
-          <option value="3">3</option>
-          <option value="6">6</option>
-          <option value="12">12</option> -->
-        </select>
+        <select name="size" id="size" onchange="sizeChange(this)"></select>
       </div>
   
       <div class="purchase">
-        <p class="product-price">$ 2.49</p>
+        <p class="product-price" id="js-price">$ 2.49</p>
         <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
 
   </div>
 
+  <!-- 
+    putting JS here so the HTML can load & not encounter reference erros! 
+    may not be best practice but this makes it easier for me
+  -->
+  <script src="script.js"></script>
 </body>
+
 </html>
   
