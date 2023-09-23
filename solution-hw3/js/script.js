@@ -1,7 +1,7 @@
 
 // OBJECT 
 const glazingOptions = {
-    options: ['Original', 'Sugar milk', 'Vanilla milk', 'Double chocolate'],
+    options: ['Keep Original', 'Sugar milk', 'Vanilla milk', 'Double chocolate'],
     adaptions: [0, 0, 0.5, 1.5],
 
     // adding options dynamically
