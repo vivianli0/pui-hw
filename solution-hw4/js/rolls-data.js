@@ -1,4 +1,6 @@
-// OBJECT 
+
+// database for product details
+
 const rolls = {
     "Original": {
         "basePrice": 2.49,
@@ -44,6 +46,35 @@ productImage.src = "../assets/products/" + rolls[rollType].imageFile;
 const productPrice = document.getElementById('js-price');
 productPrice.innerText = rolls[rollType].basePrice;
 
+// roll constructor
+class Roll {
+    constructor(rollType, rollGlazing, packSize, basePrice) {
+        this.type = rollType;
+        this.glazing = rollGlazing;
+        this.size = packSize;
+        this.basePrice = basePrice;
+    }
+}
+
+// create new roll object & add to array
+function updateCart() {
+
+    // get user selections
+    const glazingIndex = document.getElementById('glazing').options.selectedIndex; 
+    const rollGlazing = document.getElementById('glazing').options[glazingIndex].innerHTML;
+    const sizeIndex = document.getElementById('size').options.selectedIndex; 
+    const packSize = document.getElementById('size').options[sizeIndex].innerHTML;
+    const basePrice = rolls[rollType].basePrice;
+
+    // shows what is in the cart
+    const update = new Roll(rollType, rollGlazing, packSize, basePrice);
+    cart.push(update);
+    console.log(cart);
+}
+
+// event listener
+const addBtn = document.getElementById('add-to-cart');
+addBtn.addEventListener('click', updateCart);
 
 
 

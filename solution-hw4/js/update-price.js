@@ -39,8 +39,7 @@ sizeOptions.populate();
 
 // CALCULATE FINAL PRICE
 // HW4 update (dynamic base price)
-const getBasePrice = document.getElementById('js-price');
-const basePrice = parseFloat(getBasePrice.innerText);
+const basePrice = parseFloat(rolls[rollType].basePrice);
 // access DOM
 const displayPrice = document.getElementById('js-price');
 // float precision
