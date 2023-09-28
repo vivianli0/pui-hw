@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail</title>
+  <link href="style.css" rel="stylesheet">
+  <script defer src="js/rolls-data.js"></script>
+  <script defer src="js/update-price.js"></script>
+</head>
+
+<body>
+  <!-- HW2: flex container / navigation -->
+  <div class="header">
+
+    <!-- HW2: left side (logo) -->
+    <div class="header-1">
+      <a href="index.html">
+      <img class="logo" src="../assets/logo/logo-01.svg" width="400" alt="logo">
+      </a>
+    </div>
+ 
+    <!-- HW2: right side -->
+    <div class="header-2">
+      <ul class="nav">
+        <li class="nav-item"><span>PRODUCTS</span></li>
+        <li class="nav-item"><a href="cart.html" class="directory">CART</a></li>
+      </ul>
+      <div class="divider"></div>
+      <p class="title" id="title">
+        <!-- HW4: dynamic update -->
+      </p>
+    </div>
+
+  </div>
+  
+  <!-- HW2: flex container -->
+  <div class="product-detail"> 
+
+    <!-- HW2: flex item 1 (left side)-->
+    <div class="product-detail-l">
+      <!-- HW4: dynamic update -->
+      <img class="detail-img" id="productImg" src="" width="600" alt="picture of cinnamon roll">
+    </div>
+
+    <!-- HW2: flex item 2 (right side) -->
+    <div class="product-detial-r">
+      <p class="detail-text">
+        Customize our delicious <br>
+        hand-made cinammon roll to <br>
+        your liking!
+      </p> 
+  
+      <div class="options">
+        <label for="glazing">Glazing:</label><br>
+        <select name="glazing" id="glazing" onchange="glazingChange(this)"></select> 
+        <br>
+        <label for="size">Pack size:</label><br>
+        <select name="size" id="size" onchange="sizeChange(this)"></select>
+      </div>
+  
+      <div class="purchase">
+        <p class="product-price" id="js-price"><!-- HW4: dynamic update --></p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
+  
