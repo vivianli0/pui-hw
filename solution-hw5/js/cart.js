@@ -15,11 +15,50 @@ class Roll {
     }
 }
 
-// make 4 new objects
-// base price??
-const item1 = new Roll("Original", "Sugar Milk", 1, 2.49);
-const item2 = new Roll("Walnut", "Vanilla Milk", 12, 2.49);
-const item3 = new Roll("Raisin", "Sugar Milk", 3, 2.49);
-const item4 = new Roll("Apple", "Original", 3, 2.49);
+// add new roll to cart
+function addNewRoll(rollType, rollGlazing, packSize, rollPrice) {
+    const roll = new Roll(rollType, rollGlazing, packSize, rollPrice);
+    cart.push(roll);
+    return cart;
+}
 
-// 
+addNewRoll("Original", "Sugar Milk", 1, rolls.Original.basePrice);
+addNewRoll("Walnut", "Vanilla Milk", 12, rolls.Walnut.basePrice);
+addNewRoll("Raisin", "Sugar Milk", 3, rolls.Raisin.basePrice);
+addNewRoll("Apple", "Original", 3, rolls.Apple.basePrice);
+
+console.log(cart);
+
+// display cart items   
+function createElement(item) {
+    // clone template
+    const template = document.querySelector("#cart-template");
+    const clone = template.content.cloneNode(true);
+
+    // add element property to item
+    item.element = clone.querySelector(".cart-item"); 
+    const btnDelete = item.element.querySelector(".remove-btn");
+    btnDelete.addEventListener("click", () => {
+        deleteItem(item);
+    })
+
+    // add cart items to DOM
+    const cartList = document.querySelector(".cart-list");
+    console.log(item.element);
+    console.log(cartList);
+    cartList.prepend(item.element);
+
+    // populate w/ content
+    //updateElement(item);
+}
+
+function updateElement(item) {
+    
+}
+
+
+for (let i = 0; i < cart.length; i++) {
+    createElement(cart[i]);
+}
+
+
