@@ -1,11 +1,7 @@
-// display four items 
-// remove button removes item
-// update total price
-
 // initiative shopping cart
 let cart = [];
 
-// create Roll class
+// define Roll class
 class Roll {
     constructor(rollType, rollGlazing, packSize, rollPrice) {
         this.type = rollType;
@@ -27,9 +23,8 @@ addNewRoll("Walnut", "Vanilla Milk", 12, rolls.Walnut.basePrice);
 addNewRoll("Raisin", "Sugar Milk", 3, rolls.Raisin.basePrice);
 addNewRoll("Apple", "Original", 3, rolls.Apple.basePrice);
 
-console.log(cart);
-
-// display cart items   
+// display cart items, update & delete   
+// REMEMBER! this function is for each item, then iterate w/ for loop through the cart array
 function createElement(item) {
     // clone template
     const template = document.querySelector("#cart-template");
@@ -37,28 +32,40 @@ function createElement(item) {
 
     // add element property to item
     item.element = clone.querySelector(".cart-item"); 
-    const btnDelete = item.element.querySelector(".remove-btn");
-    btnDelete.addEventListener("click", () => {
-        deleteItem(item);
-    })
 
-    // add cart items to DOM
+    // add items to DOM
     const cartList = document.querySelector(".cart-list");
-    console.log(item.element);
-    console.log(cartList);
     cartList.prepend(item.element);
 
-    // populate w/ content
-    //updateElement(item);
+    // populate
+    updateElement(item);
+
+    // delete button 
+    const deleteBtn = item.element.querySelector(".remove-btn");
+    deleteBtn.addEventListener("click", () => {
+        deleteItem(item);
+    })
 }
 
 function updateElement(item) {
+    // get HTML elements that need updating 
+    const image = item.element.querySelector(".cart-img");
+    const type = item.element.querySelector(".type");
+    const glazing = item.element.querySelector(".glazing");
+    const size = item.element.querySelector(".size");
+    const price = item.element.querySelector(".price");
     
+    // update content
+    image.src = "../assets/products/" + rolls[item.type].imageFile;
+    type.innerText = item.type + " Cinnamon Roll";
+    glazing.innerText = "Glazing: " + item.glazing;
+    size.innerText = "Pack Size: " + item.size;
+    price.innerHTML = "<br> $" + item.basePrice;
 }
-
 
 for (let i = 0; i < cart.length; i++) {
     createElement(cart[i]);
 }
+
 
 
