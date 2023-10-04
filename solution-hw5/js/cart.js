@@ -13,7 +13,7 @@ class Roll {
     }
 }
 
-// for calculating final price
+// for calculating item price
 // I know it's better to reference the objects in main.js
 // but I didn't want to go back and change the entire code
 // because my adaptations are in arrays --> something on my to-do list 
