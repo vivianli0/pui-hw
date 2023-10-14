@@ -1,7 +1,7 @@
 // HW3: objects for populating glazing & size options in <select> tag
 
 const glazingOptions = {
-    options: ['Keep Original', 'Sugar milk', 'Vanilla milk', 'Double chocolate'],
+    options: ['Keep original', 'Sugar milk', 'Vanilla milk', 'Double chocolate'],
     adaptations: [0, 0, 0.5, 1.5],
     populate: function(){
         const select = document.getElementById('glazing');
@@ -34,7 +34,7 @@ sizeOptions.populate();
 ////////////////////////HW4////////////////////////
 
 // create empty cart array
-const cart = [];
+let cart = [];
 
 // get query string from URL (search parameters)
 const queryString = window.location.search; 
@@ -75,7 +75,9 @@ function updateCart() {
     // print contents in cart
     const update = new Roll(rollType, rollGlazing, packSize, basePrice);
     cart.push(update);
-    console.log(cart);
+
+    // HW6: save to local storage
+    saveToLocalStorage();
 }
 
 // event listener
@@ -87,6 +89,7 @@ addBtn.addEventListener('click', updateCart);
 const basePrice = parseFloat(rolls[rollType].basePrice);
 
 ////////////////////////HW3////////////////////////
+
 // access DOM
 const displayPrice = document.getElementById('js-price');
 // float precision
@@ -104,4 +107,32 @@ function sizeChange(element) {
     const packPrice = parseFloat(element.value);
     const finalPrice = (basePrice + glazingPrice) * packPrice;
     displayPrice.innerHTML = '$ ' + finalPrice.toFixed(precision);
+}
+
+////////////////////////HW6////////////////////////
+
+// convert cart to JSON & save in local storage
+function saveToLocalStorage() {
+    const cartArray = Array.from(cart);
+    const cartArrayString = JSON.stringify(cartArray);
+    console.log(cartArrayString);
+    localStorage.setItem('storedRolls', cartArrayString);
+}
+
+// retrieve cart from local storage
+function retrieveFromLocalStorage() {
+    const cartArrayString = localStorage.getItem('storedRolls');
+    const cartArray = JSON.parse(cartArrayString);
+    for (const rollData of cartArray) {
+        const roll = new Roll(rollData.type, rollData.glazing, rollData.size, rollData.basePrice);
+        cart.push(roll);
+    }
+}
+
+// if no cart exists, create empty cart array
+if (localStorage.getItem('storedRolls') != null) {
+    retrieveFromLocalStorage();
+    console.log(cart);
+} else {
+    cart = [];
 }

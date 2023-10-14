@@ -1,6 +1,4 @@
-// initiative shopping cart
 let cart = [];
-// for calculating final price
 let priceList = [];
 
 // define Roll class
@@ -14,9 +12,6 @@ class Roll {
 }
 
 // for calculating item price
-// I know it's better to reference the objects in main.js
-// but I didn't want to go back and change the entire code
-// because my adaptations are in arrays --> something on my to-do list 
 const precision = 2;
 const priceAdjust = {
 
@@ -28,25 +23,12 @@ const priceAdjust = {
     },
 
     glazing: {
-        "Original": 0,
-        "Sugar Milk": 0,
-        "Vanilla Milk": 0.5,
-        "Double Chocolate": 1.5
+        "Keep original": 0,
+        "Sugar milk": 0,
+        "Vanilla milk": 0.5,
+        "Double chocolate": 1.5
     }
 }
-
-// add new roll to cart
-function addNewRoll(rollType, rollGlazing, packSize, rollPrice) {
-    const roll = new Roll(rollType, rollGlazing, packSize, rollPrice);
-    cart.push(roll);
-    return cart;
-}
-
-addNewRoll("Original", "Sugar Milk", 1, rolls.Original.basePrice);
-addNewRoll("Walnut", "Vanilla Milk", 12, rolls.Walnut.basePrice);
-addNewRoll("Raisin", "Sugar Milk", 3, rolls.Raisin.basePrice);
-addNewRoll("Apple", "Original", 3, rolls.Apple.basePrice);
-
 
 // display cart items, update & delete   
 // REMEMBER! this function is for each item, then iterate w/ for loop through the cart array
@@ -91,9 +73,6 @@ function updateElement(item) {
 
     // add to price list array
     priceList.push(totalPrice.toFixed(precision));
-
-    // proof reading 
-    //console.log(item.basePrice + ' + ' + priceAdjust.glazing[item.glazing] + ' x ' + priceAdjust.size[item.size] + ' = ' + totalPrice.toFixed(precision));
 }
 
 function deleteItem(item) {
@@ -101,8 +80,14 @@ function deleteItem(item) {
     const index = cart.indexOf(item);
     cart.splice(index, 1);
     priceList.splice(index, 1);
-
     updateFinalPrice();
+
+    // HW6: save updated cart to local storage
+    const updatedCart = Array.from(cart);
+    const updatedCartString = JSON.stringify(updatedCart);
+    localStorage.clear();
+    localStorage.setItem('storedRolls', updatedCartString);
+    console.log(localStorage.getItem('storedRolls'));
 }
 
 function updateFinalPrice() {
@@ -115,14 +100,26 @@ function updateFinalPrice() {
     element.innerText = "$" + total.toFixed(precision);
 }
 
-// let's goooo!
+
+////////////////////////HW6////////////////////////
+
+// retrieve cart from local storage
+function retrieveFromLocalStorage() {
+    const localCartString = localStorage.getItem('storedRolls');
+    const localCart = JSON.parse(localCartString);
+    for (const rollData of localCart) {
+        const roll = new Roll(rollData.type, rollData.glazing, rollData.size, rollData.basePrice);
+        cart.push(roll);
+    }
+}
+
+retrieveFromLocalStorage();
+
+// populate DOM with items in current cart
 for (let i = 0; i < cart.length; i++) {
     createElement(cart[i]);
     updateFinalPrice();
 }
-
-
-
 
 
 
